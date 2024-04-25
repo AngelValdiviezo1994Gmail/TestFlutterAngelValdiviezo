@@ -121,7 +121,7 @@ class AutenticacionService extends ChangeNotifier{
     var reponseRs = response.body;
     final clienteRsp = ClientTypeResponse.fromJson(reponseRs);//aquí va a variar el objeto de respuesta cuando se cree el token por el api
     tokenUser = clienteRsp.token;
-    storage.write(key: 'jwtPago', value: tokenUser);
+    storage.write(key: 'jwtDisrupt', value: tokenUser);
     storage.write(key: 'correoUser', value: emailEntra);
     
     notifyListeners();
@@ -140,13 +140,13 @@ class AutenticacionService extends ChangeNotifier{
   }
 
   Future logOut() async {
-    await storage.delete(key: 'jwtPago');
+    await storage.delete(key: 'jwtDisrupt');
     await storage.delete(key: 'correoUser');
     return;
   }
 
   Future<String> readToken() async {
-    return await storage.read(key: 'jwtPago') ?? '';
+    return await storage.read(key: 'jwtDisrupt') ?? '';
   }
 
   Future<String> readObjCliente() async {

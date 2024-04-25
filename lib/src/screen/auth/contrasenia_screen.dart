@@ -15,7 +15,7 @@ import 'package:test_flutter_angel_valdiviezo/src/services/services.dart';
 import 'package:test_flutter_angel_valdiviezo/src/ui/ui.dart';
 
 
-String CorreoUsuario = '';
+String correoUsuario = '';
 bool cargandoPagina = false;
 bool esEnConstruccion = false;
 ColoresApp objColorsAppContrasenia = ColoresApp();
@@ -26,7 +26,7 @@ class ContraseniaScreen extends StatefulWidget {
 
   //ignore: use_super_parameters
   ContraseniaScreen({Key? key, required correoUser}) : super(key: key) {
-    CorreoUsuario = correoUser;
+    correoUsuario = correoUser;
   }
 
   static const String routerName = 'contraseniaScreen';
@@ -198,6 +198,8 @@ class PaswordEvntLog extends StatelessWidget {
               ],
             ),
           ),
+
+          SizedBox(height: sizeScreenPassWord.height * 0.37,),
           
           Container(
             color: Colors.transparent,
@@ -220,10 +222,10 @@ class PaswordEvntLog extends StatelessWidget {
                     );
                     return;
                   }
-                  await loginForm.autenticacion(CorreoUsuario.trim(), loginForm.passWord.trim());
+                  await loginForm.autenticacion(correoUsuario.trim(), loginForm.passWord.trim());
                   
                   const storageLogin = FlutterSecureStorage();
-                  String tokenUser = await storageLogin.read(key: 'jwtPago') ?? '';
+                  String tokenUser = await storageLogin.read(key: 'jwtDisrupt') ?? '';
 
                   if (tokenUser.isEmpty) {
                     Navigator.push(
@@ -236,7 +238,7 @@ class PaswordEvntLog extends StatelessWidget {
                     Future.microtask(() => Navigator.pushReplacement(
                         context,
                         PageRouteBuilder(
-                          pageBuilder: (_, __, ___) => PrincipalScreen(correo: CorreoUsuario),
+                          pageBuilder: (_, __, ___) => PrincipalScreen(correo: correoUsuario),
                           transitionDuration: const Duration(seconds: 0),
                         )
                       )

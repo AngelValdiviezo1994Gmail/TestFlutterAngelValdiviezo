@@ -41,12 +41,6 @@ class DisruptiveAppState extends State<DisruptiveApp> {
           create: (_) => AutenticacionService(),
           lazy: false,
         ),
-        /*
-        ChangeNotifierProvider(
-          create: (_) => PagoService(),
-          lazy: false,
-        ),
-        */
       ],
       child: MaterialApp(
         builder: (varContext, varChild) {

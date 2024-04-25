@@ -1,3 +1,11 @@
+export 'package:test_flutter_angel_valdiviezo/src/models/detalle_digimon_model.dart';
+
+export 'package:test_flutter_angel_valdiviezo/src/models/digimon_model.dart';
+
+export 'package:test_flutter_angel_valdiviezo/src/models/digi_data_model.dart';
+
+export 'package:test_flutter_angel_valdiviezo/src/models/pageable_model.dart';
+
 export 'package:test_flutter_angel_valdiviezo/src/models/usuario_type_response.dart';
 
 export 'package:test_flutter_angel_valdiviezo/src/models/usuario_type_models.dart';
