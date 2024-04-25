@@ -1,11 +1,10 @@
 import 'dart:io';
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-//import 'package:flutter_branch_sdk/flutter_branch_sdk.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:test_flutter_angel_valdiviezo/environments/environments.dart';
+import 'package:test_flutter_angel_valdiviezo/src/screen/screen.dart';
 /*
 
 Fuentes objFuentesSplash = Fuentes();
@@ -126,7 +125,7 @@ class IntroduccionScreenState extends State<IntroduccionScreen>{
               ),
             ),
 
-
+/*
             Container(
               color: Colors.transparent,
               height: sizeScreenLst.height * 0.2,
@@ -160,7 +159,7 @@ class IntroduccionScreenState extends State<IntroduccionScreen>{
                 ],
               ),
             ),
-
+            */
 
           ]
         ),
@@ -288,6 +287,7 @@ class IntroduccionScreenState extends State<IntroduccionScreen>{
             
             SizedBox(height: sizeScreenLst.height * 0.03,),//30,),
 
+/*
             Container(
               color: Colors.transparent,
               height: sizeScreenLst.height * 0.2,
@@ -320,8 +320,8 @@ class IntroduccionScreenState extends State<IntroduccionScreen>{
                 ],
               ),
             ),
+            */
 
-            //const SizedBox(height: 30,),
             SizedBox(height: sizeScreenLst.height * 0.03,),//30,),
 
             Expanded(
@@ -340,12 +340,12 @@ class IntroduccionScreenState extends State<IntroduccionScreen>{
                             color: objColoresAppSplash.naranjaDisruptive,
                             child: Container( color: Colors.transparent, child: const Text('QUIERO SUSCRIBIRME',style: TextStyle(color: Colors.white, fontSize: 13))),
                             onPressed: () {
-                              /*
+                              
                               Navigator.pushReplacement(
                                 context,
-                                CupertinoPageRoute(builder: (context) => const TipoSuscriptorScreen()),
+                                CupertinoPageRoute(builder: (context) => RegistroUsuarioScreen()),
                               );
-                              */
+                              
                             }
                           ),
                         ),
@@ -375,12 +375,12 @@ class IntroduccionScreenState extends State<IntroduccionScreen>{
                           ),
                           child: GestureDetector(
                             onTap: () {
-                              /*
+                              
                               Navigator.push(
                                 context,
-                                CupertinoPageRoute(builder: (context) => const AuthenticationScreen()),
+                                CupertinoPageRoute(builder: (context) => const AuthScreen()),
                               );
-                              */
+                              
                             },
                             child: Container(color: Colors.transparent, alignment: Alignment.center, child: const Text('INICIAR SESIÓN',style: TextStyle(color: Colors.white, fontSize: 13))),
                           )
@@ -408,6 +408,7 @@ class IntroduccionScreenState extends State<IntroduccionScreen>{
       child: WillPopScope(
         onWillPop: () async => false,
         child: IntroSlider(
+          isAutoScroll: true,
           /*
           autoScroll: true,
           backgroundColorAllSlides: Colors.black,

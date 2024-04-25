@@ -1,3 +1,4 @@
+/*
 import 'package:flutter/material.dart';
 import 'package:simple_animations/multi_tween/multi_tween.dart';
 import 'package:simple_animations/stateless_animation/play_animation.dart';
@@ -30,3 +31,4 @@ class FadeAnimation extends StatelessWidget {
     );
   }
 }
+*/

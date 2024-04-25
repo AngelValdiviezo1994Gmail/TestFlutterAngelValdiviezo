@@ -1,8 +1,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:test_flutter_angel_valdiviezo/src/principal_screen.dart';
 import 'package:test_flutter_angel_valdiviezo/src/screen/screen.dart';
+import 'package:test_flutter_angel_valdiviezo/src/services/services.dart';
 
 import '/src/widgets/widget.dart';
 
@@ -41,10 +41,12 @@ class DisruptiveAppState extends State<DisruptiveApp> {
           create: (_) => AutenticacionService(),
           lazy: false,
         ),
+        /*
         ChangeNotifierProvider(
           create: (_) => PagoService(),
           lazy: false,
         ),
+        */
       ],
       child: MaterialApp(
         builder: (varContext, varChild) {
@@ -66,15 +68,10 @@ class DisruptiveAppState extends State<DisruptiveApp> {
             ),
           ),
           routes: {
-            /*
-            AuthenticationScreen.routerName: (_) => const AuthenticationScreen(),
-            AutenticacionErrorScreen.routerName: (_) => AutenticacionErrorScreen(null,'', '','',false,false,'',''),
             CheckAuthScreen.routerName: (_) => const CheckAuthScreen(),
             RegistroUsuarioScreen.routerName: (_) => RegistroUsuarioScreen(),
             ContraseniaScreen.routerName: (_) => ContraseniaScreen(correoUser: ''),
-            HistorialCobroScreen.routerName: (_) => HistorialCobroScreen(),
-            PagosFrmScreen.routerName: (_) => PagosFrmScreen(),
-            */
+            
           }
       ),
     );
