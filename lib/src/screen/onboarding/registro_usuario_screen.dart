@@ -103,258 +103,256 @@ class RegistroUsuarioScreenState extends State<RegistroUsuarioScreen> with Ticke
       child: WillPopScope(
         onWillPop: () async => false,
         child: Scaffold(
-            backgroundColor: Colors.transparent,
-            body: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/FrmDatosPersonales.png'),
-                  fit: BoxFit.fill,
-                ),
+          backgroundColor: Colors.transparent,
+          body: Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/FrmDatosPersonales.png'),
+                fit: BoxFit.fill,
               ),
-              width: sizeFrmDatosPers.width,
-              child: Form(
-                autovalidateMode: AutovalidateMode.onUserInteraction,
-                child: Container(
-                  color: Colors.transparent,
-                  width: sizeFrmDatosPers.width,
-                  height: sizeFrmDatosPers.height,
-                  child: SingleChildScrollView(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween, 
-                      children: <Widget>[
-    
-                        Container(
-                          color: Colors.transparent,
-                          width: sizeFrmDatosPers.width,
-                          height: sizeFrmDatosPers.height * 0.1,
-                          alignment: Alignment.bottomCenter,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              MaterialButton(
-                                shape: const CircleBorder(),
-                                disabledColor: Colors.white,
-                                elevation: 0,
+            ),
+            width: sizeFrmDatosPers.width,
+            child: Form(
+              autovalidateMode: AutovalidateMode.onUserInteraction,
+              child: Container(
+                color: Colors.transparent,
+                width: sizeFrmDatosPers.width,
+                height: sizeFrmDatosPers.height,
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+                    children: <Widget>[
+  
+                      Container(
+                        color: Colors.transparent,
+                        width: sizeFrmDatosPers.width,
+                        height: sizeFrmDatosPers.height * 0.1,
+                        alignment: Alignment.bottomCenter,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            MaterialButton(
+                              shape: const CircleBorder(),
+                              disabledColor: Colors.white,
+                              elevation: 0,
+                              color: Colors.transparent,
+                              child: Container(
                                 color: Colors.transparent,
-                                child: Container(
-                                  color: Colors.transparent,
-                                  child: const Icon(
-                                    Icons.arrow_back_ios,
-                                    color: Colors.white,
-                                    size: 30,
-                                  ),
-                                ),
-                                onPressed: () =>
-                                  Navigator.pushReplacement(
-                                    context,
-                                    CupertinoPageRoute(builder: (context) => const IntroduccionScreen()),
-                                  ),
-                                ),
-                              const Text(
-                                ' ',
-                                style: TextStyle(
+                                child: const Icon(
+                                  Icons.arrow_back_ios,
                                   color: Colors.white,
-                                  fontSize: 18
+                                  size: 30,
                                 ),
                               ),
-                              MaterialButton(
-                                shape: const CircleBorder(),
-                                disabledColor: Colors.white,
-                                elevation: 0,
-                                color: Colors.transparent,
-                                child: Container(
-                                  color: Colors.transparent,
-                                  child: const Icon(
-                                    Icons.close,
-                                    color: Colors.white,
-                                    size: 30,
-                                  ),
+                              onPressed: () =>
+                                Navigator.pushReplacement(
+                                  context,
+                                  CupertinoPageRoute(builder: (context) => const IntroduccionScreen()),
                                 ),
-                                onPressed: () => exit(0),
                               ),
-                            ],
-                          ),
-                        ),
-
-                        Container(
-                          color: Colors.transparent,
-                          width: sizeFrmDatosPers.width * 0.85,
-                          height: sizeFrmDatosPers.height * 0.1,
-                          child: Center(
-                            child: AutoSizeText(
-                              'Ingresa tus datos por favor.',
+                            const Text(
+                              ' ',
                               style: TextStyle(
-                                color: objColoresAppDatPers.naranjaDisruptive
+                                color: Colors.white,
+                                fontSize: 18
                               ),
-                              maxLines: 1,
-                              presetFontSizes: const [20,18,16,14,12,10],
                             ),
+                            MaterialButton(
+                              shape: const CircleBorder(),
+                              disabledColor: Colors.white,
+                              elevation: 0,
+                              color: Colors.transparent,
+                              child: Container(
+                                color: Colors.transparent,
+                                child: const Icon(
+                                  Icons.close,
+                                  color: Colors.white,
+                                  size: 30,
+                                ),
+                              ),
+                              onPressed: () => exit(0),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      Container(
+                        color: Colors.transparent,
+                        width: sizeFrmDatosPers.width * 0.85,
+                        height: sizeFrmDatosPers.height * 0.1,
+                        child: Center(
+                          child: AutoSizeText(
+                            'Permítenos conocerte',
+                            style: TextStyle(
+                              color: objColoresAppDatPers.naranjaDisruptive
+                            ),
+                            maxLines: 1,
+                            presetFontSizes: const [20,18,16,14,12,10],
                           ),
                         ),
-    
-                        SizedBox(
-                          height: sizeFrmDatosPers.height * 0.04,
-                        ),
+                      ),
+  
+                      SizedBox(
+                        height: sizeFrmDatosPers.height * 0.04,
+                      ),
 
-                            Container(
-                              color: Colors.transparent,
-                              width: sizeFrmDatosPers.width * 0.85,
-                              alignment: Alignment.center,
-                              child: TextFormField(
-                                inputFormatters: [FilteringTextInputFormatter.deny(RegExp(regexToRemoveEmoji))],
-                                //initialValue: varObjetoProspectoFunc?.nombres ?? '',
-                                controller: txtNombre,
-                                style: const TextStyle(color: Colors.white),
-                                maxLines: 1,
-                                maxLength: 100,
-                                decoration: InputDecorations.authInputDecoration(
-                                  esEdicion: false,
-                                  varEsContrasenia: false,
-                                  colorBordes: Colors.white,
-                                  colorTexto: Colors.white,
-                                  varTamanioIcono: 35,
-                                  hintText: '',
-                                  labelText: 'Nombre',
-                                  //sufixIcon: Icons.calendar_month_outlined,
-                                  varOnPress: () {}
-                                ),
+                      Container(
+                        color: Colors.transparent,
+                        width: sizeFrmDatosPers.width * 0.85,
+                        alignment: Alignment.center,
+                        child: TextFormField(
+                          inputFormatters: [FilteringTextInputFormatter.deny(RegExp(regexToRemoveEmoji))],
+                          //initialValue: varObjetoProspectoFunc?.nombres ?? '',
+                          controller: txtNombre,
+                          style: const TextStyle(color: Colors.white),
+                          maxLines: 1,
+                          maxLength: 100,
+                          decoration: InputDecorations.authInputDecoration(
+                            esEdicion: false,
+                            varEsContrasenia: false,
+                            colorBordes: Colors.white,
+                            colorTexto: Colors.white,
+                            varTamanioIcono: 35,
+                            hintText: '',
+                            labelText: 'Nombres',
+                            //sufixIcon: Icons.calendar_month_outlined,
+                            varOnPress: () {}
+                          ),
+                        ),
+                      ),
+
+                      SizedBox(
+                        height: sizeFrmDatosPers.height * 0.04,
+                      ),
+                          
+                      Container(
+                            color: Colors.transparent,
+                            width: sizeFrmDatosPers.width * 0.85,
+                            alignment: Alignment.center,
+                            child: TextFormField(
+                              keyboardType: TextInputType.emailAddress,
+                              inputFormatters: [FilteringTextInputFormatter.deny(RegExp(regexToRemoveEmoji))],                                
+                              controller: txtCorreo,
+                              style: const TextStyle(color: Colors.white),
+                              maxLines: 1,
+                              maxLength: 100,
+                              validator: (value) {
+                                String pattern = r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+
+                                RegExp regExp = RegExp(pattern);
+
+                                return regExp.hasMatch(value ?? '') ? null : 'Correo inválido';
+                              },
+                              decoration: InputDecorations.authInputDecoration(
+                                esEdicion: false,
+                                varEsContrasenia: false,
+                                colorBordes: Colors.white,
+                                colorTexto: Colors.white,
+                                varTamanioIcono: 35,
+                                hintText: '',
+                                labelText: 'Correo',
+                                //sufixIcon: Icons.calendar_month_outlined,
+                                varOnPress: () {}
                               ),
                             ),
+                          ),
 
-                            SizedBox(
-                          height: sizeFrmDatosPers.height * 0.04,
+                      SizedBox(
+                        height: sizeFrmDatosPers.height * 0.04,
+                      ),
+
+                      Container(
+                        width: sizeFrmDatosPers.width * 0.2,
+                        height: 80,
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.orange.withOpacity(.4)
                         ),
-                            
-                        Container(
-                              color: Colors.transparent,
-                              width: sizeFrmDatosPers.width * 0.85,
-                              alignment: Alignment.center,
-                              child: TextFormField(
-                                keyboardType: TextInputType.emailAddress,
-                                inputFormatters: [FilteringTextInputFormatter.deny(RegExp(regexToRemoveEmoji))],                                
-                                controller: txtCorreo,
-                                style: const TextStyle(color: Colors.white),
-                                maxLines: 1,
-                                maxLength: 100,
-                                validator: (value) {
-                                  String pattern = r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
- 
-                                  RegExp regExp = RegExp(pattern);
+                        child: InkWell(
+                          onTap: () async {
+                            FocusScope.of(context).unfocus();
 
-                                  return regExp.hasMatch(value ?? '') ? null : 'Correo inválido';
-                                },
-                                decoration: InputDecorations.authInputDecoration(
-                                  esEdicion: false,
-                                  varEsContrasenia: false,
-                                  colorBordes: Colors.white,
-                                  colorTexto: Colors.white,
-                                  varTamanioIcono: 35,
-                                  hintText: '',
-                                  labelText: 'Correo',
-                                  //sufixIcon: Icons.calendar_month_outlined,
-                                  varOnPress: () {}
-                                ),
-                              ),
-                            ),
-
-                        SizedBox(
-                          height: sizeFrmDatosPers.height * 0.04,
-                        ),
-
-
-                        Container(
-                                    width: sizeFrmDatosPers.width * 0.2,
-                                    height: 80,
-                                    padding: const EdgeInsets.all(10),
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(50),
-                                      color: Colors.orange.withOpacity(.4)
-                                    ),
-                                    child: InkWell(
-                                      onTap: () async {
-                                        FocusScope.of(context).unfocus();
-
-                                        showDialog(
-                                          context: context,
-                                          barrierDismissible: false,
-                                          builder: (context) =>
-                                            SimpleDialog(
-                                              alignment: Alignment.center,
-                                              children: [
-                                              SimpleDialogCargando(
-                                                mensajeMostrar: 'estamos finalizando',
-                                                mensajeMostrarDialogCargando: 'tu proceso de suscripción',
-                                              ),
-                                            ]
-                                          ),
-                                        );
-                                        
-                                        String correoValido = ValidacionesUtils().validaCorreo(txtCorreo.text);
-
-                                        if(correoValido.isEmpty){
-                                          Navigator.of(context, rootNavigator: true).pop();
-                                          
-                                          //ignore: use_build_context_synchronously
-                                          CustomBgAlertBox(
-                                            context: context,
-                                            title: 'Error',
-                                            infoMessage: 'Correo inválido',
-                                            buttonColor: Colors.red,
-                                            buttonText: 'Cerrar',
-                                            icon: Icons.cancel,
-                                            titleTextColor: Colors.red[400],
-                                          );
-                                          return;
-                                        }
-
-                                        if (txtNombre.text.isNotEmpty && txtCorreo.text.isNotEmpty) {
-                                          Navigator.of(context, rootNavigator: true).pop();
-                                          
-                                          //ignore: use_build_context_synchronously
-                                          Navigator.pushReplacement(
-                                            context,
-                                            CupertinoPageRoute(builder: (context) => CreacionContraseniaScreen()),
-                                          );
-                                        } else {
-                                          Navigator.of(context, rootNavigator: true).pop();
-                                          //ignore: use_build_context_synchronously
-                                          CustomBgAlertBox(
-                                            context: context,
-                                            title: 'Error al registrar datos',
-                                            infoMessage: 'Debes ingresar información correcta.',
-                                            buttonColor: Colors.red,
-                                            buttonText: 'Cerrar',
-                                            icon: Icons.cancel,
-                                            titleTextColor: Colors.red[400],
-                                          );
-                                        }
-                                      },
-                                      child: Stack(
-                                          children: <Widget>[
-                                            Container(
-                                                  width: 60,
-                                                  height: 60,
-                                                  decoration: BoxDecoration(shape: BoxShape.circle, color: objColoresAppDatPers.naranjaDisruptive),
-                                                  child: const Icon(
-                                                    Icons.arrow_forward_ios,
-                                                    color: Colors.white,
-                                                  )
-                                                )
-                                          ]),
-                                    ),
+                            showDialog(
+                              context: context,
+                              barrierDismissible: false,
+                              builder: (context) =>
+                                SimpleDialog(
+                                  alignment: Alignment.center,
+                                  children: [
+                                  SimpleDialogCargando(
+                                    mensajeMostrar: 'estamos finalizando',
+                                    mensajeMostrarDialogCargando: 'tu proceso de suscripción',
                                   ),
-                                          
-                              
+                                ]
+                              ),
+                            );
+                            
+                            String correoValido = ValidacionesUtils().validaCorreo(txtCorreo.text);
 
-                      ],
-                    ),
+                            if(correoValido.isEmpty){
+                              Navigator.of(context, rootNavigator: true).pop();
+                              
+                              //ignore: use_build_context_synchronously
+                              CustomBgAlertBox(
+                                context: context,
+                                title: 'Error',
+                                infoMessage: 'Correo inválido',
+                                buttonColor: Colors.red,
+                                buttonText: 'Cerrar',
+                                icon: Icons.cancel,
+                                titleTextColor: Colors.red[400],
+                              );
+                              return;
+                            }
+
+                            if (txtNombre.text.isNotEmpty && txtCorreo.text.isNotEmpty) {
+                              Navigator.of(context, rootNavigator: true).pop();
+                              
+                              //ignore: use_build_context_synchronously
+                              Navigator.pushReplacement(
+                                context,
+                                CupertinoPageRoute(builder: (context) => CreacionContraseniaScreen()),
+                              );
+                            } else {
+                              Navigator.of(context, rootNavigator: true).pop();
+                              //ignore: use_build_context_synchronously
+                              CustomBgAlertBox(
+                                context: context,
+                                title: 'Error al registrar datos',
+                                infoMessage: 'Debes ingresar información correcta.',
+                                buttonColor: Colors.red,
+                                buttonText: 'Cerrar',
+                                icon: Icons.cancel,
+                                titleTextColor: Colors.red[400],
+                              );
+                            }
+                          },
+                          child: Stack(
+                              children: <Widget>[
+                                Container(
+                                      width: 60,
+                                      height: 60,
+                                      decoration: BoxDecoration(shape: BoxShape.circle, color: objColoresAppDatPers.naranjaDisruptive),
+                                      child: const Icon(
+                                        Icons.arrow_forward_ios,
+                                        color: Colors.white,
+                                      )
+                                    )
+                              ]),
+                        ),
+                      ),
+                                        
+                            
+
+                    ],
                   ),
                 ),
               ),
             ),
-          )
-        
+          ),
+        )        
       ),
     );
   }

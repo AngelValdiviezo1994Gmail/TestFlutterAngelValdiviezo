@@ -118,6 +118,7 @@ class DigimonData extends StatelessWidget {
 
                       showDialog(
                         //barrierDismissible: false,
+                        //ignore: use_build_context_synchronously
                         context: context,
                         builder: (context) =>
                           SimpleDialog(

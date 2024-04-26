@@ -116,7 +116,7 @@ class IntroduccionScreenState extends State<IntroduccionScreen>{
               height: sizeScreenLst.height * 0.1,
               child: const Center(
                 child: AutoSizeText(
-                  'Estás a un paso de vivir la experiencia',
+                  'Estás a un paso de vivir una nueva experiencia',
                   style: TextStyle(color: Colors.white),
                   presetFontSizes: [36,34,32,30,28,26,24,22,20,18,16,14,12,10,8],
                   maxLines: 2,
@@ -124,43 +124,6 @@ class IntroduccionScreenState extends State<IntroduccionScreen>{
                 ),
               ),
             ),
-
-/*
-            Container(
-              color: Colors.transparent,
-              height: sizeScreenLst.height * 0.2,
-              child: Row(
-                children: [
-                  Expanded(
-                    child:  
-
-                    CachedNetworkImage(
-                      height: sizeScreenLst.height * 0.1,//70,
-                      width: sizeScreenLst.width * 0.15,//80,
-                      placeholder: (context,url) =>
-                        Image.asset("assets/loadingEnrolApp.gif",
-                          height: 40.0,
-                          width: sizeScreenLst.width * 0.2,
-                        ),
-                        imageUrl: '${objCadConIntroduccionScreen.endPointImagenes}IcEnRolApp.png',
-                        fadeInCurve: Curves.bounceIn,
-                        errorWidget: ((context,error,stackTrace) {
-                          return Container(
-                            color: Colors.transparent,
-                            child: Image.asset('assets/no-image.jpg'),
-                          );
-                        }
-                      ),
-                    ),
-                        
-            
-            
-                  ),
-                ],
-              ),
-            ),
-            */
-
           ]
         ),
       ),
@@ -210,12 +173,12 @@ class IntroduccionScreenState extends State<IntroduccionScreen>{
                 softWrap: true,
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  text: 'Recuerda que',
+                  text: 'Recuerda',
                   style: TextStyle(color: objColoresAppSplash.naranjaDisruptive, fontSize: 26,),
                   children: <TextSpan>[
-                    const TextSpan(text: ' para suscribirte al servicio debes ser', style: TextStyle(color: Colors.white, fontSize: 26,)),
-                    TextSpan(text: ' autorizado',style: TextStyle(color: objColoresAppSplash.naranjaDisruptive, fontSize: 26)),
-                    const TextSpan(text: ' por tu empleador o familiar',style: TextStyle(color: Colors.white, fontSize: 26)),
+                    const TextSpan(text: ' conviértete en el cambio que', style: TextStyle(color: Colors.white, fontSize: 26,)),
+                    const TextSpan(text: ' deseas ver en el',style: TextStyle(color: Colors.white, fontSize: 26)),
+                    TextSpan(text: ' mundo',style: TextStyle(color: objColoresAppSplash.naranjaDisruptive, fontSize: 26)),                    
                   ],
                 ),
               )

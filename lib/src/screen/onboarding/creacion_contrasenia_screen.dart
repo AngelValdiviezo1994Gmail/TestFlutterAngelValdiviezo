@@ -138,7 +138,7 @@ class CreacionContraseniaScreenState extends State<CreacionContraseniaScreen> wi
                                 onPressed: () =>
                                   Navigator.pushReplacement(
                                     context,
-                                    CupertinoPageRoute(builder: (context) => const IntroduccionScreen()),
+                                    CupertinoPageRoute(builder: (context) => CreacionContraseniaScreen()),
                                   ),
                                 ),
                               const Text(
@@ -173,7 +173,7 @@ class CreacionContraseniaScreenState extends State<CreacionContraseniaScreen> wi
                           height: sizeFrmDatosPers.height * 0.1,
                           child: Center(
                             child: AutoSizeText(
-                              'Ingresa tus datos por favor.',
+                              'Generemos tu clave única y original',
                               style: TextStyle(
                                 color: colorsConfContr.naranjaDisruptive
                               ),
@@ -320,19 +320,40 @@ class CreacionContraseniaScreenState extends State<CreacionContraseniaScreen> wi
                                         
 
                                         if (txtClave.text.isNotEmpty && txtClaveConf.text.isNotEmpty) {
-                                          await clienteForm.registraProspecto(txtNombre.text, txtCorreo.text, txtClave.text);
+
+                                          String mensaje = await clienteForm.registraProspecto(txtNombre.text, txtCorreo.text, txtClave.text);
+
+                                          if(mensaje.isEmpty) {
+                                            //ignore: use_build_context_synchronously
+                                            Navigator.of(context, rootNavigator: true).pop();
+
+                                            //ignore: use_build_context_synchronously
+                                            CustomBgAlertBox(
+                                              //ignore: use_build_context_synchronously
+                                              context: context,
+                                              title: 'Error al registrar datos',
+                                              infoMessage: 'Error técnico en Backend.',
+                                              buttonColor: Colors.red,
+                                              buttonText: 'Cerrar',
+                                              icon: Icons.cancel,
+                                              titleTextColor: Colors.red[400],
+                                            );
+
+                                            return;
+                                          }
+
                                           await loginForm.autenticacion(txtCorreo.text, txtClave.text);
                                           
                                           //ignore: use_build_context_synchronously
                                           Navigator.of(context, rootNavigator: true).pop();
 
                                           Future.microtask(() {
-            Navigator.pushReplacement(context, PageRouteBuilder(
-              pageBuilder: ( _, __ , ___ ) => PrincipalScreen(correo: txtCorreo.text),
-              transitionDuration: const Duration( seconds: 0)
-              )
-            );
-          });
+                                            Navigator.pushReplacement(context, PageRouteBuilder(
+                                              pageBuilder: ( _, __ , ___ ) => PrincipalScreen(correo: txtCorreo.text),
+                                              transitionDuration: const Duration( seconds: 0)
+                                              )
+                                            );
+                                          });
 
                                         } else {
                                           Navigator.of(context, rootNavigator: true).pop();
@@ -349,17 +370,18 @@ class CreacionContraseniaScreenState extends State<CreacionContraseniaScreen> wi
                                         }
                                       },
                                       child: Stack(
-                                          children: <Widget>[
-                                            Container(
-                                                  width: 60,
-                                                  height: 60,
-                                                  decoration: BoxDecoration(shape: BoxShape.circle, color: colorsConfContr.naranjaDisruptive),
-                                                  child: const Icon(
-                                                    Icons.arrow_forward_ios,
-                                                    color: Colors.white,
-                                                  )
-                                                )
-                                          ]),
+                                        children: <Widget>[
+                                          Container(
+                                            width: 60,
+                                            height: 60,
+                                            decoration: BoxDecoration(shape: BoxShape.circle, color: colorsConfContr.naranjaDisruptive),
+                                            child: const Icon(
+                                              Icons.arrow_forward_ios,
+                                              color: Colors.white,
+                                            )
+                                          )
+                                        ]
+                                      ),
                                     ),
                                   ),
                                           

@@ -78,21 +78,7 @@ class AuthenticationState extends Equatable {
         return 'NI';
       }
 
-/*
-      PackageInfo packageInfo = await PackageInfo.fromPlatform();
-
-      String nombreSistemaOperativo = '';
-
-      if(Platform.isAndroid) {
-        nombreSistemaOperativo = 'Android';
-      }
-      
-      if(Platform.isIOS) {
-        nombreSistemaOperativo = 'iOS';
-      }
-      */
-
-      String token = await storage.read(key: 'jwtPago') ?? '';
+      String token = await storage.read(key: 'jwtDisrupt') ?? '';
       String correo = await storage.read(key: 'correoUser') ?? '';
       String respuesta = token.isNotEmpty ? '$token|$correo' : '';
 

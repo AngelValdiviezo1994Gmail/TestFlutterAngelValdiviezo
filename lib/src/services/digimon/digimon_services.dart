@@ -1,5 +1,6 @@
 
 
+import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -110,8 +111,18 @@ class DigimonService extends ChangeNotifier{
 
       final prospRsp = DigimonDetalleModel.fromJson(varResponse.body);
       return prospRsp;
-    }
-    on SocketException catch (_) {
+    
+     } on TimeoutException catch (_) {
+      Fluttertoast.showToast(
+        msg: digiMensajesProspectoService.mensajeTiempoEspera,
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.TOP,
+        timeInSecForIosWeb: 5,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+      );
+    } on SocketException catch (_) {
       Fluttertoast.showToast(
         msg: digiMensajesProspectoService.mensajeFallaInternet,
         toastLength: Toast.LENGTH_LONG,
@@ -121,7 +132,26 @@ class DigimonService extends ChangeNotifier{
         textColor: Colors.white,
         fontSize: 16.0
       );
-          
+    } on HttpException catch (_) {
+      Fluttertoast.showToast(
+        msg: digiMensajesProspectoService.mensajePeticion,
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.TOP,
+        timeInSecForIosWeb: 5,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+      );
+    } on FormatException catch (_) {
+      Fluttertoast.showToast(
+        msg: digiMensajesProspectoService.mensajeErrorFormato,
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.TOP,
+        timeInSecForIosWeb: 5,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+      );
     }
   }
 

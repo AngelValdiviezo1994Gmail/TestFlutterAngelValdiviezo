@@ -168,19 +168,29 @@ class ProspectoTypeService extends ChangeNotifier{
   }
 
   registraProspecto(String nombre, String correo, String clave) async {
+    String respuesta = '';
+
     final baseURL = '${endPoint}usuarios/crear-cuenta-url/$correo/$nombre/$clave';
 
     final response = await http.post(Uri.parse(baseURL));
-    if(response.statusCode != 200) return null;
+
+    if(response.statusCode != 200) return respuesta;
 
     var reponseRs = response.body;
+    
     final clienteRsp = ClientTypeResponse.fromJson(reponseRs);
     
+    respuesta = clienteRsp.mensaje;
+    
+    /*
     if(clienteRsp.mensaje.isEmpty) {
       return null;
     }
+    */
 
     notifyListeners();
+
+    return respuesta;
   }
 
 }
