@@ -138,7 +138,7 @@ class CreacionContraseniaScreenState extends State<CreacionContraseniaScreen> wi
                                 onPressed: () =>
                                   Navigator.pushReplacement(
                                     context,
-                                    CupertinoPageRoute(builder: (context) => CreacionContraseniaScreen()),
+                                    CupertinoPageRoute(builder: (context) => RegistroUsuarioScreen()),
                                   ),
                                 ),
                               const Text(
